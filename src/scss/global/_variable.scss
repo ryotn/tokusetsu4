@@ -74,8 +74,9 @@
     --color-black-transparent: rgba(0,0,0,.16);  // 背景の上に薄い色を重ねたいとき
     --color-black-blur: rgba(0,0,0,.75);
 
-    --color-tw: #55acee;
-    --color-fb: #1877F2;
+    --color-x: #000000;
+    --color-don: #3690DB;
+    --color-mi: #9ED608;
 
     // Alias tokens
     --color-bg: var(--color-gray-100);
@@ -94,8 +95,9 @@
     --color-btn-primary-ghost-border: var(--color-primary);
     --color-btn-primary-ghost-text: var(--color-primary);
     --color-btn-secondary: var(--color-white-transparent);
-    --color-btn-tw: var(--color-tw);
-    --color-btn-fb: var(--color-fb);
+    --color-btn-x: var(--color-x);
+    --color-btn-don: var(--color-don);
+    --color-btn-mi: var(--color-mi);
 
     --color-border: var(--color-white-transparent);
     --color-border-highlight: var(--color-primary);

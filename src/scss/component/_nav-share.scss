@@ -10,14 +10,19 @@
 .share-btn {
     display: flex;
     border-radius: 50%;
-    width: 48px;
-    height: 48px;
+    width: 64px;
+    height: 64px;
     align-items: center;
     justify-content: center;
+    margin: 0 18px;
+    text-decoration:none;
 }
-.share-tw {
-    background-color: var(--color-btn-tw);
+.share-x {
+    background-color: var(--color-btn-x);
 }
-.share-fb {
-    background-color: var(--color-btn-fb);
+.share-don {
+    background-color: var(--color-btn-don);
+}
+.share-mi {
+    background-color: var(--color-btn-mi);
 }

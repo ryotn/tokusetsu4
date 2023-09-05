@@ -300,8 +300,8 @@ function csv_array(data) {
       document.head.insertAdjacentHTML(
         "beforeend",
         "<style>:root{--color-bg-content:" +
-          valContentBackgroundColor +
-          "}</style>"
+        valContentBackgroundColor +
+        "}</style>"
       );
       const domContentBackground = document.querySelector(".js-containerMask");
       domContentBackground.style.opacity = valContentBackgroundOpacity;
@@ -490,7 +490,7 @@ function csv_array(data) {
   /////////////////////////////////////
   // -Share Buttons-
   try {
-    const domShareTwitter = document.querySelector(".js-share-tw");
+    /*const domShareTwitter = document.querySelector(".js-share-tw");
     const domShareFacebook = document.querySelector(".js-share-fb");
     let twitterLink =
       "https://twitter.com/share?text=" + encodedSiteTitle + "&url=" + siteUrl;
@@ -500,7 +500,24 @@ function csv_array(data) {
     }
     domShareTwitter.setAttribute("href", twitterLink);
     const facebookLink = "http://www.facebook.com/sharer.php?u=" + siteUrl;
-    domShareFacebook.setAttribute("href", facebookLink);
+    domShareFacebook.setAttribute("href", facebookLink);*/
+    const domShareMisskey = document.querySelector(".js-share-mi");
+    let misskeyLink =
+      "https://misskeyshare.link/share.html?text=" + encodedSiteTitle + "&url=" + siteUrl;
+    domShareMisskey.setAttribute("href", misskeyLink);
+
+    const domShareMastodon = document.querySelector(".js-share-don");
+    let mastodonLink =
+      "https://donshare.net/share.html?text=" + encodedSiteTitle + "&url=" + siteUrl;
+    domShareMastodon.setAttribute("href", mastodonLink);
+
+    const domShareX = document.querySelector(".js-share-x");
+    let XLink =
+      "https://twitter.com/share?text=" + encodedSiteTitle + "&url=" + siteUrl;
+    if (valHashtag != "") {
+      XLink += "&hashtags=" + valHashtag;
+    }
+    domShareX.setAttribute("href", XLink);
   } catch (error) {
     console.error("Error: Share buttons");
   }
@@ -523,16 +540,16 @@ function csv_array(data) {
           domSoundCloudPlayer.setAttribute(
             "src",
             "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/" +
-              valPlayerSoundCloud +
-              "&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"
+            valPlayerSoundCloud +
+            "&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"
           );
           break;
         case "Playlist":
           domSoundCloudPlayer.setAttribute(
             "src",
             "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/" +
-              valPlayerSoundCloud +
-              "&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"
+            valPlayerSoundCloud +
+            "&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"
           );
           break;
         default:
@@ -586,7 +603,7 @@ function csv_array(data) {
     for (let i = 0; i < optAbout.length; i++) {
       const domAboutClone = domAbout.cloneNode(true);
       domAboutClone.textContent = optAbout[i].value1;
-      if (optAbout[i].value2 == "TRUE")domAboutClone.style.margin = 0;
+      if (optAbout[i].value2 == "TRUE") domAboutClone.style.margin = 0;
       domAboutWrap.appendChild(domAboutClone);
     }
     domAbout.remove(); // コピー元を削除
