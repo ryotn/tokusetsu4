@@ -586,6 +586,7 @@ function csv_array(data) {
     for (let i = 0; i < optAbout.length; i++) {
       const domAboutClone = domAbout.cloneNode(true);
       domAboutClone.textContent = optAbout[i].value1;
+      if (optAbout[i].value2 == "TRUE")domAboutClone.style.margin = 0;
       domAboutWrap.appendChild(domAboutClone);
     }
     domAbout.remove(); // コピー元を削除
