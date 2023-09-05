@@ -383,12 +383,16 @@ function csv_array(data) {
   try {
     const domSpecification = document.querySelector(
       ".js-specification-content"
-    );
+    ); // コピー元を取得
+    domSpecification.textContent = "";
     const optSpecification = array.filter(
       (value) => value.option === "Specification"
     );
-    const valSpecification = optSpecification[0].value1;
-    domSpecification.textContent = valSpecification;
+    for (let i = 0; i < optSpecification.length; i++) {
+      const domSpecificationClone = domSpecification.cloneNode(true);
+      domSpecificationClone.textContent = optSpecification[i].value1;
+      domSpecification.appendChild(domSpecificationClone);
+    }
   } catch (error) {
     console.error("Error: Overview Specification");
   }
