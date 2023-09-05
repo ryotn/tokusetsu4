@@ -55,17 +55,20 @@ function csv_array(data) {
 
   // Site Title
   const optWorkTitle = array.filter((value) => value.option === "Title");
+  const optWorkSubTitle = array.filter((value) => value.option === "SubTitle");
   const optOrganization = array.filter(
     (value) => value.option === "Organization Name"
   );
 
   const valWorkTitle = optWorkTitle[0].value1;
+  const valWorkTitleSubTitle = optWorkTitle[0].value1 + optWorkSubTitle[0].value1;
+  const valWorkSubTitle = optWorkSubTitle[0].value1;
   var valOrganization = optOrganization[0].value1;
 
   // エンコードされたイベントタイトル（Googleカレンダー追加ボタンに使う）
-  const encodedWorkTitle = encodeURIComponent(valWorkTitle);
+  const encodedWorkTitle = encodeURIComponent(valWorkTitleSubTitle);
 
-  const siteTitle = new String(valWorkTitle + " | " + valOrganization);
+  const siteTitle = new String(valWorkTitleSubTitle + " | " + valOrganization);
   // エンコードされたタイトル（シェアボタンに使う）
   const encodedSiteTitle = encodeURIComponent(siteTitle);
 
@@ -367,6 +370,10 @@ function csv_array(data) {
   try {
     const domTitle = document.querySelector(".js-title");
     domTitle.textContent = valWorkTitle;
+    const domSubTitle = document.createElement("span");
+    domSubTitle.textContent = valWorkSubTitle;
+    domSubTitle.style.display = "inline-block";
+    domTitle.appendChild(domSubTitle);
   } catch (error) {
     console.error("Error: Title");
   }
@@ -799,7 +806,7 @@ function csv_array(data) {
 
   /////////////////////////////////////
   // -Footer-
-  document.querySelector(".js-footer-workTitle").textContent = valWorkTitle;
+  document.querySelector(".js-footer-workTitle").textContent = valWorkTitleSubTitle;
   // footer-text (option)
   try {
     const domFooterText = document.querySelector(".js-footer-text");
